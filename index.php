@@ -310,10 +310,13 @@
                     <!-- End File Details -->
                 </div>
             </div>
+            <div class="col-4 col-md-4 col-xl-4">
+                <button type="submit" class="btn btn-primary">Submit Form</button>
+                <br/>
+            </div>
         </div>
     </div>
     <!-- End Upload Area -->
-
 </form>
 
 
