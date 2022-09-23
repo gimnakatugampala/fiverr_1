@@ -310,7 +310,7 @@
                     <!-- End File Details -->
                 </div>
             </div>
-        </div><div></div>
+        </div>
     </div>
     <!-- End Upload Area -->
 
