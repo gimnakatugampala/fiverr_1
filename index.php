@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" style="height: 793.484px;transform: translate(0px) scale(0.87);">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="assets/css/table.css">
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
-<body style="transform: scale(1.03);">
+<body class="container">
 <!-- <div class="container">
     <div class="row">
         <div class="col-md-6 col-sm-6 col-md-6 col-xl-6">
