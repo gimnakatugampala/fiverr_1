@@ -8,20 +8,9 @@
     <link rel="stylesheet" href="assets/css/styles.min.css">
     <link rel="stylesheet" href="assets/css/table.css">
     <link rel="stylesheet" href="assets/css/main.css">
+
 </head>
 <body class="container">
-<!-- <div class="container">
-    <div class="row">
-        <div class="col-md-6 col-sm-6 col-md-6 col-xl-6">
-            <img src="assets/img/779b6ff4-2bc3-4abd-981b-823564ba33d6.jpg"
-                 style="position: sticky;display: inline-grid;">
-        </div>
-        <div class="col-md-6 col-sm-6 col-md-6 col-xl-6">
-            <img src="assets/img/4a464235-0e83-49ef-9560-c155601312d7.jpg"
-                 style="margin-left: 305px;padding-left: 0px;margin-right: -56px;padding-right: 17px;position: sticky;display: inline-grid;">
-        </div>
-    </div>
-</div> -->
 
 <div class="d-flex d-flex justify-content-between">
 <img src="assets/img/779b6ff4-2bc3-4abd-981b-823564ba33d6.jpg">
@@ -119,6 +108,7 @@ name="to"> .</p>
     </p>
 
     <p style="filter: blur(0px);transform: scale(0.89);margin-right: 6px;padding-right: 0px;margin-left: 498px;padding-bottom: 0px;text-align: center;padding-top: 0px;margin-top: -21px;">
+
 
 
 
