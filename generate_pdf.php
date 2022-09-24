@@ -6,18 +6,6 @@ require_once 'dompdf/autoload.inc.php';
 if (isset($_POST['submit_val'])) {
     $dompdf = new Dompdf();
     $dompdf->loadHtml('
-Unit : ' . $_POST['unit'] . '
-</br>
-From :' . $_POST['from'] . '
-</br>
-To : ' . $_POST['to'] . '
-</br>
-This : ' . $_POST['this'] . '
-</br>
-Day : ' . $_POST['day'] . '
-</br>
-Year : ' . $_POST['year'] . '
-
 
 <body style="transform: scale(1.03);">
 
