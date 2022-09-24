@@ -1,19 +1,19 @@
+var canvas = document.getElementById("signature-pad");
 
-// Uses jSignature for signature imput: https://willowsystems.github.io/jSignature/
+function resizeCanvas() {
+    var ratio = Math.max(window.devicePixelRatio || 1, 1);
+    canvas.width = canvas.offsetWidth * ratio;
+    canvas.height = canvas.offsetHeight * ratio;
+    canvas.getContext("2d").scale(ratio, ratio);
+}
+window.onresize = resizeCanvas;
+resizeCanvas();
 
-$('#signature').jSignature();
-var $sigdiv = $('#signature');
-var datapair = $sigdiv.jSignature('getData', 'svgbase64');
-
-$('#signature').bind('change', function(e) {
-    var data = $('#signature').jSignature('getData');
-    $("#signature_capture").val(data);
-    $("#help").slideDown(300);
+var signaturePad = new SignaturePad(canvas, {
+ backgroundColor: 'rgb(250,250,250)'
 });
 
-$('#reset').click(function(e){
-    $('#signature').jSignature('clear');
-    $("#signature_capture").val('');
-    //$("#help").slideUp(300);
-    e.preventDefault();
-});
+document.getElementById("clear").addEventListener('click', function(e){
+e.preventDefault()
+ signaturePad.clear();
+})
