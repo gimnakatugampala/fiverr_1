@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="assets/css/file-uploader.css">
 </head>
 <body style="transform: scale(1.03);">
+
 <!-- <div class="container">
     <div class="row">
         <div class="col-md-6 col-sm-6 col-md-6 col-xl-6">
@@ -29,7 +30,7 @@
     <img src="assets/img/4a464235-0e83-49ef-9560-c155601312d7.jpg">
 </div>
 
-<form>
+<form action="generate_pdf.php" method="post">
     <h4 style="text-align: center;"><span style="text-decoration: underline;">AUTHORIZATION LETTER</span></h4>
     </br>
 
@@ -40,10 +41,9 @@
                style="padding-left: 0px;padding-top: 0px;padding-right: 0px;transform: perspective(0px) translate(-2px);border-width: 2px;border-style: dotted;border-top-style: none;border-top-color: rgba(118,118,118,0);border-right-style: none;border-right-color: rgba(118,118,118,0);border-bottom-style: dotted;border-bottom-color: rgb(0,0,0);border-left-style: none;border-left-color: rgba(118,118,118,0);padding-bottom: 0px;margin-top: -6px;margin-bottom: -21px;width: 48px;text-align: center;margin-left: -1px;"
                name="unit">unit for the period covering from&nbsp;<input type="text" id="from"
                                                                          style="padding-left: 0px;padding-top: 0px;margin-top: -6px;padding-bottom: 0px;margin-bottom: -32px;margin-left: 7px;padding-right: 0px;transform: perspective(0px) translate(-2px);border-width: 2px;border-style: none;border-top-style: none;border-top-color: rgba(118,118,118,0);border-right-style: none;border-right-color: rgba(118,118,118,0);border-bottom-style: dotted;border-bottom-color: rgb(0,0,0);border-left-style: none;border-left-color: rgba(118,118,118,0);width: 67px;text-align: center;"
-                                                                         name="from"> to&nbsp;<input
-                type="text" id="to"
-                style="padding-left: 0px;padding-bottom: 0px;padding-right: 0px;transform: perspective(0px) translate(-2px);border-width: 2px;border-style: none;border-top-style: none;border-top-color: rgba(118,118,118,0);border-right-style: none;border-right-color: rgba(118,118,118,0);border-bottom-style: dotted;border-bottom-color: rgb(0,0,0);border-left-style: none;border-left-color: rgba(118,118,118,0);margin-bottom: -13px;padding-top: 0px;margin-top: -11px;width: 73px;margin-left: 3px;text-align: center;"
-                name="to"> .</p>
+                                                                         name="from"> to&nbsp;<input type="text" id="to"
+                                                                                                     style="padding-left: 0px;padding-bottom: 0px;padding-right: 0px;transform: perspective(0px) translate(-2px);border-width: 2px;border-style: none;border-top-style: none;border-top-color: rgba(118,118,118,0);border-right-style: none;border-right-color: rgba(118,118,118,0);border-bottom-style: dotted;border-bottom-color: rgb(0,0,0);border-left-style: none;border-left-color: rgba(118,118,118,0);margin-bottom: -13px;padding-top: 0px;margin-top: -11px;width: 73px;margin-left: 3px;text-align: center;"
+                                                                                                     name="to"> .</p>
 
 
     <div id="main">
@@ -109,13 +109,13 @@
 
     <p style="filter: blur(0px);transform: scale(0.89);padding-right: 429px;margin-right: 6px;margin-left: -1px;">Given
         this<input
-                type="text" id="date"
+                type="text"
                 style="padding-top: 0px;margin-top: -6px;padding-bottom: 0px;margin-bottom: -32px;padding-right: 0px;transform: perspective(0px) translate(-2px);border-width: 2px;border-style: none;border-top-style: none;border-top-color: rgba(118,118,118,0);border-right-style: none;border-right-color: rgba(118,118,118,0);border-bottom-style: dotted;border-bottom-color: rgb(0,0,0);border-left-style: none;border-left-color: rgba(118,118,118,0);padding-left: 0px;width: 23px;margin-left: 6px;margin-right: -2px;text-align: center;"
-                required="" inputmode="numeric" maxlength="2" name="date">day of<input type="text"
+                required="" inputmode="numeric" maxlength="2" name="this">day of<input type="text"
                                                                                        style="padding-top: 0px;margin-top: -6px;padding-bottom: 0px;margin-bottom: -32px;margin-left: 10px;padding-right: 0px;transform: perspective(0px) translate(-2px);border-width: 2px;border-style: none;border-top-style: none;border-top-color: rgba(118,118,118,0);border-right-style: none;border-right-color: rgba(118,118,118,0);border-bottom-style: dotted;border-bottom-color: rgb(0,0,0);border-left-style: none;border-left-color: rgba(118,118,118,0);padding-left: 0px;width: 23px;text-align: center;"
                                                                                        required="" inputmode="numeric"
                                                                                        maxlength="2"
-                                                                                       name="month">&nbsp;,20<input
+                                                                                       name="day">&nbsp;,20<input
                 type="text"
                 style="padding-top: 0px;margin-top: -6px;padding-bottom: 0px;margin-bottom: -32px;padding-right: 0px;transform: perspective(0px) translate(-2px);border-width: 2px;border-style: none;border-top-style: none;border-top-color: rgba(118,118,118,0);border-right-style: none;border-right-color: rgba(118,118,118,0);border-bottom-style: dotted;border-bottom-color: rgb(0,0,0);border-left-style: none;border-left-color: rgba(118,118,118,0);width: 23px;padding-left: 5px;margin-left: 10px;"
                 required=""
@@ -311,7 +311,7 @@
                 </div>
             </div>
             <div class="col-4 col-md-4 col-xl-4">
-                <button type="submit" class="btn btn-primary">Submit Form</button>
+                <button  type="submit" name="submit_val" value="GENERATE PDF">Submit Form</button>
                 <br/>
             </div>
         </div>
