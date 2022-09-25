@@ -16,10 +16,17 @@
 <body class="container">
 
 
-<div class="d-flex d-flex justify-content-between">
-    <img src="assets/img/779b6ff4-2bc3-4abd-981b-823564ba33d6.jpg">
-    <img src="assets/img/4a464235-0e83-49ef-9560-c155601312d7.jpg">
-</div>
+
+
+    <div class="row text-center">
+        <div class="col-md-4">
+        <img src="assets/img/779b6ff4-2bc3-4abd-981b-823564ba33d6.jpg">
+        </div>
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+        <img src="assets/img/4a464235-0e83-49ef-9560-c155601312d7.jpg">
+        </div>
+    </div>
 
 <form action="generate_pdf.php" method="post">
     <h4 style="text-align: center;"><span style="text-decoration: underline;">AUTHORIZATION LETTER</span></h4>
@@ -35,7 +42,8 @@
 
 
     <div id="main">
-        <table id="data" class="data-table data-table-horizontal data-table-highlight">
+    <div class="table-responsive">    
+        <table id="data" class="table">
             <tbody>
             <tr>
                 <td><h6>Name of Guest(s)</h6></td>
@@ -77,6 +85,7 @@
                                 class="fa fa-trash-o fa-fw"></i></a></td>
             </tr>
         </table>
+</div>
 
     </div>
 
@@ -124,7 +133,7 @@
             <!-- Signature Pad -->
     
     
-        <p class="my-3">Signature over Printed Name of<br>Unit Owner or Authorized Representative</p>
+        <p class="my-3 sg-pad-text">Signature over Printed Name of<br>Unit Owner or Authorized Representative</p>
 
         </div>
 
@@ -137,7 +146,7 @@
     <h4 style="text-align: left;transform: perspective(0px) scale(0.91);font-size: 18px;">
     <span style="text-decoration: underline;">HOUSE RULES AND REGULATIONS:</span><br></h4>
         
-    <p style="filter: blur(0px);transform: scale(0.89);text-align: left;font-size: 17px;">1.No pets of any kind is allowed within the
+    <p class="rules-1">1.No pets of any kind is allowed within the
         complex.<br>2.Jazz Residences is a No-Smoking complex, no smoking policy is observed in all common areas within
         the
         complex.<br>3.Swimming pool may be used by the authorized guests) provided they pay the corresponding fees
@@ -150,7 +159,7 @@
         AND
         PROCEDURE<br></h4>
 
-    <p style="filter: blur(0px);transform: scale(0.89);text-align: left;font-size: 17px;">1. The authorization letter form should be
+    <p class="rules-2">1. The authorization letter form should be
         duly
         filled up by the unit owner or authorized representative.<br>2. The authorization letter should be submitted at
         least one (1) day prior to the arrival of guest.<br>3. At least one (1) valid proof of identification is to be
