@@ -1,5 +1,5 @@
 body{
-font-size: 17px;
+    font-size: 17px;
 }
 
 
@@ -26,6 +26,15 @@ table{
     display: flex;
     justify-content: end;
     width: 100%;
+}
+
+.first-container{
+    font-size: 16px;
+}
+
+.first-container input{
+    border: none;
+    border-bottom: 1px dotted #000;
 }
 
 #main{
@@ -58,8 +67,9 @@ table{
 }
 .wrapper {
     border: 1px solid #4b00ff;
-    /* border-right: 0; */
+    
 }
+
 canvas#signature-pad {
     background: #fff;
     width: 100%;

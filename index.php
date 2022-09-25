@@ -26,15 +26,12 @@
     </br>
 
 
-    <p style="filter: blur(0px);transform: scale(0.94);">This is authorise the following guest (s) to occupy and use my
+    <p class="first-container">This is authorise the following guest (s) to occupy and use my
         unit located at Tower
-        <input type="text" id="unit"
-               style="padding-left: 0px;padding-top: 0px;padding-right: 0px;transform: perspective(0px) translate(-2px);border-width: 2px;border-style: dotted;border-top-style: none;border-top-color: rgba(118,118,118,0);border-right-style: none;border-right-color: rgba(118,118,118,0);border-bottom-style: dotted;border-bottom-color: rgb(0,0,0);border-left-style: none;border-left-color: rgba(118,118,118,0);padding-bottom: 0px;margin-top: -6px;margin-bottom: -21px;width: 48px;text-align: center;margin-left: -1px;"
-               name="unit">unit for the period covering from&nbsp;<input type="text" id="from"
-                                                                         style="padding-left: 0px;padding-top: 0px;margin-top: -6px;padding-bottom: 0px;margin-bottom: -32px;margin-left: 7px;padding-right: 0px;transform: perspective(0px) translate(-2px);border-width: 2px;border-style: none;border-top-style: none;border-top-color: rgba(118,118,118,0);border-right-style: none;border-right-color: rgba(118,118,118,0);border-bottom-style: dotted;border-bottom-color: rgb(0,0,0);border-left-style: none;border-left-color: rgba(118,118,118,0);width: 67px;text-align: center;"
-                                                                         name="from"> to&nbsp;<input type="text" id="to"
-                                                                                                     style="padding-left: 0px;padding-bottom: 0px;padding-right: 0px;transform: perspective(0px) translate(-2px);border-width: 2px;border-style: none;border-top-style: none;border-top-color: rgba(118,118,118,0);border-right-style: none;border-right-color: rgba(118,118,118,0);border-bottom-style: dotted;border-bottom-color: rgb(0,0,0);border-left-style: none;border-left-color: rgba(118,118,118,0);margin-bottom: -13px;padding-top: 0px;margin-top: -11px;width: 73px;margin-left: 3px;text-align: center;"
-                                                                                                     name="to"> .</p>
+        <input type="text" id="unit" name="unit">unit for the period covering from&nbsp;
+        <input type="text" id="from" name="from"> to&nbsp;
+        <input type="text" id="to" name="to"> .
+    </p>
 
 
     <div id="main">
@@ -137,9 +134,10 @@
 
 
     
-    <h4 style="text-align: left;transform: perspective(0px) scale(0.91);font-size: 18.704px;"><span
-                style="text-decoration: underline;">HOUSE RULES AND REGULATIONS:</span><br></h4>
-    <p style="filter: blur(0px);transform: scale(0.89);text-align: left;">1.No pets of any kind is allowed within the
+    <h4 style="text-align: left;transform: perspective(0px) scale(0.91);font-size: 18px;">
+    <span style="text-decoration: underline;">HOUSE RULES AND REGULATIONS:</span><br></h4>
+        
+    <p style="filter: blur(0px);transform: scale(0.89);text-align: left;font-size: 17px;">1.No pets of any kind is allowed within the
         complex.<br>2.Jazz Residences is a No-Smoking complex, no smoking policy is observed in all common areas within
         the
         complex.<br>3.Swimming pool may be used by the authorized guests) provided they pay the corresponding fees
@@ -148,11 +146,11 @@
         followed by all authorized guests.<br>4.Gym facilities is for the exclusive use of unit owners and tenants ONLY.
         Gym
         is off limits to guests.<br>5.No parking slot is available for guest(s).</p><h4
-            style="text-align: left;transform: perspective(0px) scale(0.91);font-size: 18.704px;">GUEST HANDLING POLICY
+            style="text-align: left;transform: perspective(0px) scale(0.91);font-size: 18px;">GUEST HANDLING POLICY
         AND
         PROCEDURE<br></h4>
 
-    <p style="filter: blur(0px);transform: scale(0.89);text-align: left;">1. The authorization letter form should be
+    <p style="filter: blur(0px);transform: scale(0.89);text-align: left;font-size: 17px;">1. The authorization letter form should be
         duly
         filled up by the unit owner or authorized representative.<br>2. The authorization letter should be submitted at
         least one (1) day prior to the arrival of guest.<br>3. At least one (1) valid proof of identification is to be
