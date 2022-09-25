@@ -119,25 +119,26 @@
 
     
         <!-- Signature Pad -->
-        <div class="sg-pad-container">
-        <div class="sg-pad">
-        <div class="flex-row">
-            <div class="wrapper">
-                <canvas id="signature-pad" width="400" height="200"></canvas>
-            </div>    
-        </div>
-        <!-- <div class="clear-btn"> -->
-            <a class="btn btn-primary" href="#" id="clear"> Clear</a>
-        <!-- </div> -->
-        
-            <!-- Signature Pad -->
-    
-    
-        <p class="my-3 sg-pad-text">Signature over Printed Name of<br>Unit Owner or Authorized Representative</p>
+        <div class="row text-center">
+            <div class="col-md-7"></div>
+                <div class="col-md-5 sg-pad-container">
+                <div class="sg-pad">
+                <div class="flex-row">
+                    <div class="wrapper">
+                        <canvas id="signature-pad" width="400" height="200"></canvas>
+                    </div>    
+                    <a class="btn btn-primary" href="#" id="clear"> Clear</a>
+                </div>
+                <!-- <div class="clear-btn"> -->
+                    <!-- </div> -->
+                
+                    <!-- Signature Pad -->
+            
+            
+                <p class="my-3 sg-pad-text">Signature over Printed Name of<br>Unit Owner or Authorized Representative</p>
 
-        </div>
-
-
+                </div>
+                </div>
         </div>
 
 
@@ -234,45 +235,45 @@
             </div>
 
             <div class="col-sm-12 col-md-6 col-xl-4">
-                <div id="uploadArea" class="upload-area">
+                <div id="uploadArea2" class="upload-area2">
                     <!-- Header -->
-                    <div class="upload-area__header">
-                        <h1 class="upload-area__title">Upload Your id card front</h1>
-                        <p class="upload-area__paragraph">
+                    <div class="upload-area__header2">
+                        <h1 class="upload-area__title2">Upload Your id card front</h1>
+                        <p class="upload-area__paragraph2">
                             File should be an image
-                            <strong class="upload-area__tooltip">
+                            <strong class="upload-area__tooltip2">
                                 Like
-                                <span class="upload-area__tooltip-data"></span> <!-- Data Will be Comes From Js -->
+                                <span class="upload-area__tooltip-data2"></span> <!-- Data Will be Comes From Js -->
                             </strong>
                         </p>
                     </div>
                     <!-- End Header -->
                     <!-- Drop Zoon -->
-                    <div id="dropZoon" class="upload-area__drop-zoon drop-zoon">
-                        <span class="drop-zoon__icon">
+                    <div id="dropZoon2" class="upload-area__drop-zoon drop-zoon2">
+                        <span class="drop-zoon__icon2">
                         <i class='bx bxs-file-image'></i>
                         </span>
-                        <p class="drop-zoon__paragraph">Drop your file here or Click to browse</p>
-                        <span id="loadingText" class="drop-zoon__loading-text">Please Wait</span>
-                        <img src="" alt="Preview Image" id="previewImage" class="drop-zoon__preview-image"
+                        <p class="drop-zoon__paragraph2">Drop your file here or Click to browse</p>
+                        <span id="loadingText2" class="drop-zoon__loading-text2">Please Wait</span>
+                        <img src="" alt="Preview Image" id="previewImage2" class="drop-zoon__preview-image2"
                              draggable="false">
-                        <input type="file" id="fileInput" class="drop-zoon__file-input" accept="image/*">
+                        <input type="file" id="fileInput2" class="drop-zoon__file-input2" accept="image/*">
                     </div>
                     <!-- End Drop Zoon -->
 
                     <!-- File Details -->
-                    <div id="fileDetails" class="upload-area__file-details file-details">
-                        <h3 class="file-details__title">Upload Your vaccine card</h3>
+                    <div id="fileDetails2" class="upload-area__file-details file-details2">
+                        <h3 class="file-details__title2">Upload Your Front ID Card</h3>
 
-                        <div id="uploadedFile" class="uploaded-file">
-                            <div class="uploaded-file__icon-container">
-                                <i class='bx bxs-file-blank uploaded-file__icon'></i>
-                                <span class="uploaded-file__icon-text"></span> <!-- Data Will be Comes From Js -->
+                        <div id="uploadedFile2" class="uploaded-file2">
+                            <div class="uploaded-file__icon-container2">
+                                <i class='bx bxs-file-blank uploaded-file__icon2'></i>
+                                <span class="uploaded-file__icon-text2"></span> <!-- Data Will be Comes From Js -->
                             </div>
 
-                            <div id="uploadedFileInfo" class="uploaded-file__info">
-                                <span class="uploaded-file__name">Proejct 1</span>
-                                <span class="uploaded-file__counter">0%</span>
+                            <div id="uploadedFileInfo2" class="uploaded-file__info2">
+                                <span class="uploaded-file__name2">Proejct 1</span>
+                                <span class="uploaded-file__counter2">0%</span>
                             </div>
                         </div>
                     </div>
@@ -280,55 +281,56 @@
                 </div>
             </div>
 
+
+            <!-- 3 -->
             <div class="col-sm-12 col-md-6 col-xl-4">
-                <div id="uploadArea" class="upload-area">
+                <div id="uploadArea3" class="upload-area3">
                     <!-- Header -->
-                    <div class="upload-area__header">
-                        <h1 class="upload-area__title">Upload Your id card back</h1>
-                        <p class="upload-area__paragraph">
+                    <div class="upload-area__header3">
+                        <h1 class="upload-area__title3">Upload Your id card back</h1>
+                        <p class="upload-area__paragraph3">
                             File should be an image
-                            <strong class="upload-area__tooltip">
+                            <strong class="upload-area__tooltip3">
                                 Like
-                                <span class="upload-area__tooltip-data"></span> <!-- Data Will be Comes From Js -->
+                                <span class="upload-area__tooltip-data3"></span> <!-- Data Will be Comes From Js -->
                             </strong>
                         </p>
                     </div>
                     <!-- End Header -->
                     <!-- Drop Zoon -->
-                    <div id="dropZoon" class="upload-area__drop-zoon drop-zoon">
-                        <span class="drop-zoon__icon">
+                    <div id="dropZoon3" class="upload-area__drop-zoon drop-zoon3">
+                        <span class="drop-zoon__icon3">
                         <i class='bx bxs-file-image'></i>
                         </span>
-                        <p class="drop-zoon__paragraph">Drop your file here or Click to browse</p>
-                        <span id="loadingText" class="drop-zoon__loading-text">Please Wait</span>
-                        <img src="" alt="Preview Image" id="previewImage" class="drop-zoon__preview-image"
+                        <p class="drop-zoon__paragraph3">Drop your file here or Click to browse</p>
+                        <span id="loadingText3" class="drop-zoon__loading-text3">Please Wait</span>
+                        <img src="" alt="Preview Image" id="previewImage3" class="drop-zoon__preview-image3"
                              draggable="false">
-                        <input type="file" id="fileInput" class="drop-zoon__file-input" accept="image/*">
+                        <input type="file" id="fileInput3" class="drop-zoon__file-input3" accept="image/*">
                     </div>
                     <!-- End Drop Zoon -->
 
-
-
-
                     <!-- File Details -->
-                    <div id="fileDetails" class="upload-area__file-details file-details">
-                        <h3 class="file-details__title">Upload Your vaccine card</h3>
+                    <div id="fileDetails3" class="upload-area__file-details file-details3">
+                        <h3 class="file-details__title3">Upload Your Back ID Card</h3>
 
-                        <div id="uploadedFile" class="uploaded-file">
-                            <div class="uploaded-file__icon-container">
-                                <i class='bx bxs-file-blank uploaded-file__icon'></i>
-                                <span class="uploaded-file__icon-text"></span> <!-- Data Will be Comes From Js -->
+                        <div id="uploadedFile3" class="uploaded-file3">
+                            <div class="uploaded-file__icon-container3">
+                                <i class='bx bxs-file-blank uploaded-file__icon3'></i>
+                                <span class="uploaded-file__icon-text3"></span> <!-- Data Will be Comes From Js -->
                             </div>
 
-                            <div id="uploadedFileInfo" class="uploaded-file__info">
-                                <span class="uploaded-file__name">Proejct 1</span>
-                                <span class="uploaded-file__counter">0%</span>
+                            <div id="uploadedFileInfo3" class="uploaded-file__info3">
+                                <span class="uploaded-file__name3">Proejct 1</span>
+                                <span class="uploaded-file__counter3">0%</span>
                             </div>
                         </div>
                     </div>
                     <!-- End File Details -->
                 </div>
             </div>
+
+
             <div class="my-5 d-flex justify-content-center">
                 <button class="btn btn-primary btn-md" type="submit" name="submit_val" value="GENERATE PDF">Submit Form</button>
                 <br/>
