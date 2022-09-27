@@ -1,3 +1,233 @@
+<?php
+
+
+// Convert to PDF
+require 'vendor/autoload.php';
+use Dompdf\Dompdf;
+use Dompdf\Options;
+
+
+
+
+if (isset($_POST['submit_val'])) {
+
+    // $error = array();
+    
+    $units = $_POST["unit"];
+    $from = $_POST["from"];
+    $to = $_POST["to"];
+    $thisW = $_POST["this"];
+    $day = $_POST["day"];
+    $year = $_POST["year"];
+    $sign = $_POST["hidden_data"];
+    $client_email = $_POST["user_email"];
+
+    // Upload ed Images
+    $image1_file_name = $_FILES["image1"]["name"];
+    $image1_file_size = $_FILES["image1"]["size"];
+    $image1_file_tmp = $_FILES["image1"]["tmp_name"];
+    $image1_file_type = $_FILES["image1"]["type"];
+    $error_1     = $_FILES['image1']['error'];
+
+    $image2_file_name = $_FILES["image2"]["name"];
+    $image2_file_size = $_FILES["image2"]["size"];
+    $image2_file_tmp = $_FILES["image2"]["tmp_name"];
+    $image2_file_type = $_FILES["image2"]["type"];
+
+    $image3_file_name = $_FILES["image3"]["name"];
+    $image3_file_size = $_FILES["image3"]["size"];
+    $image3_file_tmp = $_FILES["image3"]["tmp_name"];
+    $image3_file_type = $_FILES["image3"]["type"];
+
+
+
+
+    $guestName1 = empty($_POST["guest_name1"]) ? '' : $_POST["guest_name1"];
+    $guestSign1 = empty($_POST["sign_guest1"]) ? '' : $_POST["sign_guest1"];
+    $guestID1 = empty($_POST["id_guest1"]) ? '' : $_POST["id_guest1"];
+    $guestRelation1 = empty($_POST["relation_guest1"]) ? '' : $_POST["relation_guest1"];
+
+    $guestName2 = empty($_POST["guest_name2"]) ? '' : $_POST["guest_name2"];
+    $guestSign2 = empty($_POST["sign_guest2"]) ? '' : $_POST["sign_guest2"];
+    $guestID2 = empty($_POST["id_guest2"]) ? '' : $_POST["id_guest2"];
+    $guestRelation2 = empty($_POST["relation_guest2"]) ? '' : $_POST["relation_guest2"];
+
+    $guestName3 = empty($_POST["guest_name3"]) ? '' : $_POST["guest_name3"];
+    $guestSign3 = empty($_POST["sign_guest3"]) ? '' : $_POST["sign_guest3"];
+    $guestID3 = empty($_POST["id_guest3"]) ? '' : $_POST["id_guest3"];
+    $guestRelation3 = empty($_POST["relation_guest3"]) ? '' : $_POST["relation_guest3"];
+
+    $guestName4 = empty($_POST["guest_name4"]) ? '' : $_POST["guest_name4"];
+    $guestSign4 = empty($_POST["sign_guest4"]) ? '' : $_POST["sign_guest4"];
+    $guestID4 = empty($_POST["id_guest4"]) ? '' : $_POST["id_guest4"];
+    $guestRelation4 = empty($_POST["relation_guest4"]) ? '' : $_POST["relation_guest4"];
+
+    $guestName5 = empty($_POST["guest_name5"]) ? '' : $_POST["guest_name5"];
+    $guestSign5 = empty($_POST["sign_guest5"]) ? '' : $_POST["sign_guest5"];
+    $guestID5 = empty($_POST["id_guest5"]) ? '' :  $_POST["id_guest5"];
+    $guestRelation5 = empty($_POST["relation_guest5"]) ? '' : $_POST["relation_guest5"];
+
+
+
+
+    //Getting image
+    $imgpath='<img width="220" height="220" src="'.$sign.'">';
+    $img_vc='<img  src="'.$image1_file_name.'">';
+    $img_id_front='<img   src="'.$image2_file_name.'">';
+    $img_id_back='<img    src="'.$image3_file_name.'">';
+
+        // // Store the Images
+        // $file_ext_1 = strtolower(end(explode('.',$_FILES["image1"]["name"])));
+        // $file_ext_2 = strtolower(end(explode('.',$_FILES["image2"]["name"])));
+        // $file_ext_3 = strtolower(end(explode('.',$_FILES["image3"]["name"])));
+    
+        // $extensions = array("jpeg","jpg","png");
+    
+        // if(in_array($file_ext_1,$extensions) == false || in_array($file_ext_2,$extensions) == false || in_array($file_ext_3,$extensions) == false){
+        //     $error[] = "Incorrect File Format";
+        // }
+    
+        if(empty($error) == true){
+            move_uploaded_file($image1_file_tmp , $image1_file_name);
+            move_uploaded_file($image2_file_tmp , $image2_file_name);
+            move_uploaded_file($image3_file_tmp , $image3_file_name);
+        }
+    
+    
+    
+
+
+    
+
+    $options = new Options;
+    $options->setChroot(__DIR__);
+    $options->set('isRemoteEnabled', TRUE);
+    $options->set('tempDir', '/home2/directory/public_html/directory/pdf-export/tmp');
+
+
+    // Convert to PDF
+    $dompdf = new Dompdf($options);
+
+
+    $html = file_get_contents("template.html");
+
+    $html = str_replace(["{{u}}" , "{{f}}","{{t}}","{{th}}","{{d}}","{{y}}","{{i}}","{{GN1}}","{{GS1}}","{{GID1}}","{{GR1}}","{{GN2}}","{{GS2}}","{{GID2}}","{{GR2}}","{{GN3}}","{{GS3}}","{{GID3}}","{{GR3}}","{{GN4}}","{{GS4}}","{{GID4}}","{{GR4}}","{{GN5}}","{{GS5}}","{{GID5}}","{{GR5}}","{{IMG1}}","{{IMG2}}","{{IMG3}}"],[$units,$from,$to,$thisW,$day,$year,$imgpath,$guestName1,$guestSign1,$guestID1,$guestRelation1,$guestName2,$guestSign2,$guestID2,$guestRelation2,$guestName3,$guestSign3,$guestID3,$guestRelation3,$guestName4,$guestSign4,$guestID4,$guestRelation4,$guestName5,$guestSign5,$guestID5,$guestRelation5,$img_vc,$img_id_front,$img_id_back],$html);
+
+    $dompdf->loadHtml($html);
+    
+    $random = md5(rand());
+    $dompdf->setPaper('A4', 'landscape');
+    $dompdf->render();
+    
+    $dompdf->addInfo("Title","Filled Form");
+
+    $dompdf->stream("sheet.pdf", array("Attachment" => 0));
+    $output = $dompdf->output();
+
+    // // Save the PDF
+    file_put_contents("file_$random.pdf",$output);
+
+
+
+    $content = file_get_contents("file_$random.pdf");
+    $content = chunk_split(base64_encode($content));
+
+    // $content_img_1 = file_get_contents($image1_file_name);
+    // $content_img_1 = chunk_split(base64_encode($content_img_1));
+
+    // $content_img_2 = file_get_contents($image2_file_name);
+    // $content_img_2 = chunk_split(base64_encode($content_img_2));
+
+
+
+
+
+    // SEND EMAIL
+    $name = 'Client';
+    $email = 'paicanpam@gmail.com';
+    $usermessage = 'Just Email';
+    
+    $message ="Name = ". $name . "\r\n  Email = " . $email . "\r\n Message =" . $usermessage; 
+    
+    $subject ="Authorization Letter New User";
+    $fromname ="Authorization Letter Admin";
+    $fromemail = 'noreply@codeconia.com';  //if u dont have an email create one on your cpanel
+
+    $mailto = 'paicanpam@gmail.com,'.$client_email;  //the email which u want to recv this email
+
+    // $content = file_get_contents("file_$random.pdf");
+    // $content = chunk_split(base64_encode($content));
+
+    // $content_img_1 = file_get_contents($image1_file_name);
+    // $content_img_1 = chunk_split(base64_encode($content_img_1));
+  
+
+
+    // a random hash will be necessary to send mixed content
+    $separator = md5(time());
+    // carriage return type (RFC)
+    $eol = "\r\n";
+    // main header (multipart mandatory)
+    $headers = "From: ".$fromname." <".$fromemail.">" . $eol;
+    $headers .= "MIME-Version: 1.0" . $eol;
+    $headers .= "Content-Type: multipart/mixed; boundary=\"" . $separator . "\"" . $eol;
+    $headers .= "Content-Transfer-Encoding: 7bit" . $eol;
+    $headers .= "This is a MIME encoded message." . $eol;
+    // message
+    $body = "--" . $separator . $eol;
+    $body .= "Content-Type: text/plain; charset=\"iso-8859-1\"" . $eol;
+    $body .= "Content-Transfer-Encoding: 8bit" . $eol;
+    // $body .= $content;
+    $body .= "--" . $separator . $eol;
+    $body .= "Content-Type: application/octet-stream; name=\"" . "file_$random.pdf" . "\"" . $eol;
+    $body .= "Content-Transfer-Encoding: base64" . $eol;
+    $body .= "Content-Disposition: attachment" . $eol;
+    $body .= $content . $eol;
+    $body .= "--" . $separator . "--";
+
+      
+    // $body .= "--" . $separator . $eol;
+    // $body .= "Content-Type: application/octet-stream; name=\"" . "$image1_file_name" . "\"" . $eol;
+    // $body .= "Content-Transfer-Encoding: base64" . $eol;
+    // $body .= "Content-Disposition: attachment" . $eol;
+    // $body .= $content_img_1 . $eol;
+    // $body .= "--" . $separator . "--";
+
+    // $body .= "--" . $separator . $eol;
+    // $body .= "Content-Type: application/octet-stream; name=\"" . "$image2_file_name" . "\"" . $eol;
+    // $body .= "Content-Transfer-Encoding: base64" . $eol;
+    // $body .= "Content-Disposition: attachment" . $eol;
+    // $body .= $content_img_2 . $eol;
+    // $body .= "--" . $separator . "--";
+    
+
+
+
+
+    //SEND Mail
+    if (mail($mailto, $subject, $body, $headers)) {
+        echo "mail send ... OK"; // do what you want after sending the email
+        
+        
+    } else {
+        echo "mail send ... ERROR!";
+        print_r( error_get_last() );
+    }
+
+    unlink("file_$random.pdf");
+    unlink($image1_file_name);
+    unlink($image2_file_name);
+    unlink($image3_file_name);
+
+
+
+
+    
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,11 +241,10 @@
     <link rel="stylesheet" href="assets/css/file-uploader.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/1.3.5/signature_pad.min.js" integrity="sha512-kw/nRM/BMR2XGArXnOoxKOO5VBHLdITAW00aG8qK4zBzcLVZ4nzg7/oYCaoiwc8U9zrnsO9UHqpyljJ8+iqYiQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 </head>
 <body class="container">
-
-
 
 
     <div class="row text-center">
@@ -28,7 +257,7 @@
         </div>
     </div>
 
-<form action="generate_pdf.php" method="post">
+<form action="index.php" method="post" target="_blank" enctype="multipart/form-data">
     <h4 style="text-align: center;"><span style="text-decoration: underline;">AUTHORIZATION LETTER</span></h4>
     </br>
 
@@ -50,48 +279,61 @@
                 <td><h6>Signature of Guest(s)</h6></td>
                 <td><h6>Proof of Identification</h6></td>
                 <td><h6>Relationship with Unit Owner</h6></td>
-                <td><h6>Delete</h6></td>
+                <!-- <td><h6>Delete</h6></td> -->
             </tr>
-            <tr>
-                <td><input type="text"/></td>
-                <td><input type="text"/></td>
-                <td><input type="text"/></td>
-                <td><input type="text"/></td>
+            <!-- <tr>
+                <td><input name="guest_name1" type="text"/></td>
+                <td><input name="sign_guest1" type="text"/></td>
+                <td><input name="id_guest1" type="text"/></td>
+                <td><input name="relation_guest1" type="text"/></td>
                 <td><a class="btn btn-danger" type="button" value="Delete" onclick="deleteRow(this)"><i
                                 class="fa fa-trash-o fa-fw"></i></a></td>
-            </tr>
+            </tr> -->
+
             <tr>
-                <td><input type="text"/></td>
-                <td><input type="text"/></td>
-                <td><input type="text"/></td>
-                <td><input type="text"/></td>
-                <td><a class="btn btn-danger" type="button" value="Delete" onclick="deleteRow(this)"><i
-                                class="fa fa-trash-o fa-fw"></i></a></td>
+                <td><input name="guest_name1" type="text"/></td>
+                <td><input name="sign_guest1" type="text"/></td>
+                <td><input name="id_guest1" type="text"/></td>
+                <td><input name="relation_guest1" type="text"/></td>
             </tr>
+
             <tr>
-                <td><input type="text"/></td>
-                <td><input type="text"/></td>
-                <td><input type="text"/></td>
-                <td><input type="text"/></td>
-                <td><a class="btn btn-danger" type="button" value="Delete" onclick="deleteRow(this)"><i
-                                class="fa fa-trash-o fa-fw"></i></a></td>
+                <td><input name="guest_name2" type="text"/></td>
+                <td><input name="sign_guest2" type="text"/></td>
+                <td><input name="id_guest2" type="text"/></td>
+                <td><input name="relation_guest2" type="text"/></td>
             </tr>
+
             <tr>
-                <td><input type="text"/></td>
-                <td><input type="text"/></td>
-                <td><input type="text"/></td>
-                <td><input type="text"/></td>
-                <td><a class="btn btn-danger" type="button" value="Delete" onclick="deleteRow(this)"><i
-                                class="fa fa-trash-o fa-fw"></i></a></td>
+                <td><input name="guest_name3" type="text"/></td>
+                <td><input name="sign_guest3" type="text"/></td>
+                <td><input name="id_guest3" type="text"/></td>
+                <td><input name="relation_guest3" type="text"/></td>
             </tr>
+
+            <tr>
+                <td><input name="guest_name4" type="text"/></td>
+                <td><input name="sign_guest4" type="text"/></td>
+                <td><input name="id_guest4" type="text"/></td>
+                <td><input name="relation_guest4" type="text"/></td>
+            </tr>
+
+            <tr>
+                <td><input name="guest_name5" type="text"/></td>
+                <td><input name="sign_guest5" type="text"/></td>
+                <td><input name="id_guest5" type="text"/></td>
+                <td><input name="relation_guest5" type="text"/></td>
+            </tr>
+       
+            <!-- <input name="rows_amount" id='rows_amount' type="hidden"/> -->
         </table>
 </div>
 
     </div>
 
-    <div class="pull-right">
-        <input type="button" value="Add" class="btn btn-success my-3 d-flex  top-buffer" onclick="addRow('data')"/>
-    </div>
+    <!-- <div class="pull-right">
+        <input type="button" value="Add" class="btn btn-success my-3 d-flex  top-buffer" onclick="addRow('data')">
+    </div> -->
 
     <br>
     <br>
@@ -120,20 +362,39 @@
     
         <!-- Signature Pad -->
         <div class="row text-center">
-            <div class="col-md-7"></div>
+            <div class="m-auto col-md-7">
+
+            <div class="user_email_container text-center">
+                
+                <div>
+                    <input type="email" name="user_email">
+                    <p class="user-email-text">Enter Your Email</p>
+                </div>
+            </div>
+
+
+            </div>
                 <div class="col-md-5 sg-pad-container">
                 <div class="sg-pad">
                 <div class="flex-row">
                     <div class="wrapper">
                         <canvas id="signature-pad" width="400" height="200"></canvas>
                     </div>    
-                    <a class="btn btn-primary" href="#" id="clear"> Clear</a>
+
+                    <div class="d-flex justify-content-between my-2">
+                        <a class="btn btn-primary" href="#" id="clear"> Clear</a>
+                        <input class="confirm-sign-btn" type="button" onclick="uploadEx()" value="Confim" />
+                    </div>
                 </div>
-                <!-- <div class="clear-btn"> -->
-                    <!-- </div> -->
+                
+                <!-- <form action="signature.php" method="post" accept-charset="utf-8" name="form1"> -->
+                    <input name="hidden_data" id='hidden_data' type="hidden"/>
+                    
+		        <!-- </form> -->
+                
+
                 
                     <!-- Signature Pad -->
-            
             
                 <p class="my-3 sg-pad-text">Signature over Printed Name of<br>Unit Owner or Authorized Representative</p>
 
@@ -156,7 +417,7 @@
         followed by all authorized guests.<br>4.Gym facilities is for the exclusive use of unit owners and tenants ONLY.
         Gym
         is off limits to guests.<br>5.No parking slot is available for guest(s).</p><h4
-            style="text-align: left;transform: perspective(0px) scale(0.91);font-size: 18px;">GUEST HANDLING POLICY
+            style="text-align: left;transform: perspective(0px) scale(0.91);font-size: 18px;text-decoration: underline;">GUEST HANDLING POLICY
         AND
         PROCEDURE<br></h4>
 
@@ -210,7 +471,7 @@
                         <span id="loadingText" class="drop-zoon__loading-text">Please Wait</span>
                         <img src="" alt="Preview Image" id="previewImage" class="drop-zoon__preview-image"
                              draggable="false">
-                        <input type="file" id="fileInput" class="drop-zoon__file-input" accept="image/*">
+                        <input type="file" name="image1" id="fileInput" class="drop-zoon__file-input" accept="image/*">
                     </div>
                     <!-- End Drop Zoon -->
 
@@ -257,7 +518,7 @@
                         <span id="loadingText2" class="drop-zoon__loading-text2">Please Wait</span>
                         <img src="" alt="Preview Image" id="previewImage2" class="drop-zoon__preview-image2"
                              draggable="false">
-                        <input type="file" id="fileInput2" class="drop-zoon__file-input2" accept="image/*">
+                        <input type="file" name="image2" id="fileInput2" class="drop-zoon__file-input2" accept="image/*">
                     </div>
                     <!-- End Drop Zoon -->
 
@@ -306,7 +567,7 @@
                         <span id="loadingText3" class="drop-zoon__loading-text3">Please Wait</span>
                         <img src="" alt="Preview Image" id="previewImage3" class="drop-zoon__preview-image3"
                              draggable="false">
-                        <input type="file" id="fileInput3" class="drop-zoon__file-input3" accept="image/*">
+                        <input type="file" name="image3" id="fileInput3" class="drop-zoon__file-input3" accept="image/*">
                     </div>
                     <!-- End Drop Zoon -->
 
@@ -348,5 +609,14 @@
 <script src="assets/js/table.js"></script>
 <script src="assets/js/file-uploader.js"></script>
 <script src="assets/js/signature.js"></script>
+<script>
+    function uploadEx() {
+        var canvas = document.getElementById("signature-pad");
+        var dataURL = canvas.toDataURL("image/png");
+        document.getElementById('hidden_data').value = dataURL;
+        
+    };
+</script>
+
 </body>
 </html>

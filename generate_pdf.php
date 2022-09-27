@@ -1,9 +1,13 @@
 <?php
 
-namespace Dompdf;
-require_once 'dompdf/autoload.inc.php';
+        require 'vendor/autoload.php';
+        use Dompdf\Dompdf;
+
+
 
 if (isset($_POST['submit_val'])) {
+
+
     $dompdf = new Dompdf();
     $dompdf->loadHtml('
 
@@ -24,13 +28,15 @@ if (isset($_POST['submit_val'])) {
     <h4 style="text-align: left;transform: perspective(0px) scale(0.91);font-size: 18.704px;">GUEST HANDLING POLICY AND PROCEDURE<br /></h4>
     <p style="filter: blur(0px);transform: scale(0.89);text-align: left;">1. The authorization letter form should be duly filled up by the unit owner or authorized representative.<br />2. The authorization letter should be submitted at least one (1) day prior to the arrival of guest.<br />3. At least one (1) valid proof of identification is to be presented and be used as an attachment for the<br />authorization letter. For foreigners, a copy of the passport should be presented and attached.<br />4.The guest is not allowed to move in unless the authorization letter is duly submitted and acknowledged by the Property Management Office.<br />5. The unit owner / authorized representative is responsible for the welfare of the guest during the duration of the stay inside the unit.<br />6. For security and safety purposes, guests will go through bag check-up procedures upon arrival at Jazz<br />Residences.<br />7. For safety and security purposes, the residential units shall not be used as an office, boarding house,<br />dormitory, transient or other &quot;bed space type&quot; establishment.<br />8. All unit owners, tenants, and/or residents of the building, guest, building personnel, contractors and<br />service providers are REQUIRED to follow and comply with the governing House Rules and Regulations to<br />avoid property and personal risk as well as inconvenience as a consequence of violation/s of the<br />provisions of the House Rules.</p>
     <p class="text-end" style="filter: blur(0px);transform: scale(0.89);text-align: center;padding-top: 0px;margin-top: -22px;padding-right: 0px;margin-bottom: -2px;margin-left: -8px;padding-left: 365px;"></p>
-
 </body>
-
 ');
+    $random = md5(rand());
     $dompdf->setPaper('A4', 'landscape');
     $dompdf->render();
-    $dompdf->stream("", array("Attachment" => false));
+    $dompdf->stream("sheet.pdf", array("Attachment" => 0));
+    $output = $dompdf->output();
+    file_put_contents("file_$random.pdf",$output);
+
     exit(0);
 }
 ?>

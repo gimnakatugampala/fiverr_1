@@ -1,0 +1,260 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Fiverr Poject</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.min.css">
+    <link rel="stylesheet" href="assets/css/table.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/file-uploader.css">
+
+    <style>
+
+    .header-shoecase{
+        display: flex;
+        justify-content: space-between;
+    }
+
+
+    .header-shoecase .image-2{
+        float: right;
+    }
+
+    .form-title{
+        text-align: center;
+        margin-left: 20%;
+    }
+
+    table input{
+        border: none;
+    }
+    
+    .signature_container{
+        margin-left: 60%;
+        text-align: center;
+    }
+
+    .wrapper{
+        border: none;
+    }
+
+    form input{
+        font-weight: bold;
+        text-align: center;
+        font-size: 15px;
+    }
+   
+    .is{
+        text-align: center;
+        width: 100%;
+        margin: 5px;
+        /* float: left; */
+    }
+
+
+
+    </style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/1.3.5/signature_pad.min.js" integrity="sha512-kw/nRM/BMR2XGArXnOoxKOO5VBHLdITAW00aG8qK4zBzcLVZ4nzg7/oYCaoiwc8U9zrnsO9UHqpyljJ8+iqYiQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+</head>
+<body>
+
+
+    <div class="header-shoecase">
+        
+        <img class="image-1" src="assets/img/779b6ff4-2bc3-4abd-981b-823564ba33d6.jpg">
+       
+        <img  class="image-2"  src="assets/img/4a464235-0e83-49ef-9560-c155601312d7.jpg">
+      
+    </div>
+
+    <form action="index.php" method="post" target="_blank">
+    <h4 class="form-title" ><span style="text-decoration: underline;">AUTHORIZATION LETTER</span></h4>
+    </br>
+    <p class="first-container">This is authorise the following guest (s) to occupy and use my
+        unit located at Tower
+        <input value="{{u}}"  type="text" id="unit" >unit for the period covering from&nbsp;
+        <input value="{{f}}" type="text" id="from" > to&nbsp;
+        <input value="{{t}}" type="text" id="to" > .
+    </p>
+
+
+    <div id="main">
+    <div class="table-responsive">    
+        <table id="data" class="table">
+            <tbody>
+            <tr>
+                <td><h6>Name of Guest(s)</h6></td>
+                <td><h6>Signature of Guest(s)</h6></td>
+                <td><h6>Proof of Identification</h6></td>
+                <td><h6>Relationship with Unit Owner</h6></td>
+            </tr>
+            <tr>
+                <td><input value="{{GN1}}" type="text"/></td>
+                <td><input value="{{GS1}}" type="text"/></td>
+                <td><input value="{{GID1}}" type="text"/></td>
+                <td><input value="{{GR1}}" type="text"/></td>
+            
+            </tr>
+            <tr>
+                <td><input value="{{GN2}}" type="text"/></td>
+                <td><input value="{{GS2}}" type="text"/></td>
+                <td><input value="{{GID2}}" type="text"/></td>
+                <td><input value="{{GR2}}" type="text"/></td>
+            
+            </tr>
+            <tr>
+                <td><input value="{{GN3}}" type="text"/></td>
+                <td><input value="{{GS3}}" type="text"/></td>
+                <td><input value="{{GID3}}" type="text"/></td>
+                <td><input value="{{GR3}}" type="text"/></td>
+            </tr>
+
+            <tr>
+                <td><input value="{{GN4}}" type="text"/></td>
+                <td><input value="{{GS4}}" type="text"/></td>
+                <td><input value="{{GID4}}" type="text"/></td>
+                <td><input value="{{GR4}}" type="text"/></td>
+            </tr>
+
+            <tr>
+                <td><input value="{{GN5}}" type="text"/></td>
+                <td><input value="{{GS5}}" type="text"/></td>
+                <td><input value="{{GID5}}" type="text"/></td>
+                <td><input value="{{GR5}}" type="text"/></td>
+            </tr>
+            
+        </table>
+        </div>
+    </div>
+
+ 
+    <!-- <br>
+    <br>
+    <br>
+    <br> -->
+
+    <div class="my-5 sub-form-container">
+    <p>This is to certify that I have oriented my guest(s) on the
+        existing
+        house rules and regulations of Jazz Residences (including some of the most applicable house rules itemised
+        below)
+        and that any violations that will be committed by my guest(s) will be my liability to the Condominium
+        Corporation.
+    </p>
+
+    <p>
+    
+    Given this
+        <input value="{{th}}" type="text" required="" inputmode="numeric" maxlength="10" name="this">day of
+
+        <input value="{{d}}" type="text"  required="" inputmode="numeric"  maxlength="2" name="day">&nbsp;,20
+            
+        <input value="{{y}}" type="text" required="" inputmode="numeric" maxlength="2" name="year">.
+      </p>
+
+      <div>
+
+    
+        <!-- Signature Pad -->
+        <div class="signature_container">
+           
+                <div class="sg-pad-container">
+                <div class="sg-pad">
+                <div class="flex-row">
+                    <div  class="wrapper">
+                            
+                        {{i}}
+                        
+                    </div>    
+                  
+                </div>
+                
+                <p class="my-3 sg-pad-text">Signature over Printed Name of<br>Unit Owner or Authorized Representative</p>
+
+                </div>
+                </div>
+        </div>
+
+
+
+    <br />
+    <h4 style="text-align: left;transform: perspective(0px) scale(0.91);font-size: 18px;">
+    <span style="text-decoration: underline;">HOUSE RULES AND REGULATIONS:</span><br></h4>
+        
+    <p class="rules-1">1.No pets of any kind is allowed within the
+        complex.<br>2.Jazz Residences is a No-Smoking complex, no smoking policy is observed in all common areas within
+        the
+        complex.<br>3.Swimming pool may be used by the authorized guests) provided they pay the corresponding fees
+        (Php<br>150.00
+        for REGULAR days and Php 300.00 for HOLIDAYS. Posted swimming pool rules and regulations<br>shall be strictly
+        followed by all authorized guests.<br>4.Gym facilities is for the exclusive use of unit owners and tenants ONLY.
+        Gym
+        is off limits to guests.<br>5.No parking slot is available for guest(s).</p><h4
+            style="text-align: left;transform: perspective(0px) scale(0.91);font-size: 18px;text-decoration: underline;">GUEST HANDLING POLICY
+        AND
+        PROCEDURE<br></h4>
+
+    <p class="rules-2">1. The authorization letter form should be
+        duly
+        filled up by the unit owner or authorized representative.<br>2. The authorization letter should be submitted at
+        least one (1) day prior to the arrival of guest.<br>3. At least one (1) valid proof of identification is to be
+        presented and be used as an attachment for the<br>authorization letter. For foreigners, a copy of the passport
+        should be presented and attached.<br>4.The guest is not allowed to move in unless the authorization letter is
+        duly
+        submitted and acknowledged by the Property Management Office.<br>5. The unit owner / authorized representative
+        is
+        responsible for the welfare of the guest during the duration of the stay inside the unit.<br>6. For security and
+        safety purposes, guests will go through bag check-up procedures upon arrival at Jazz<br>Residences.<br>7. For
+        safety
+        and security purposes, the residential units shall not be used as an office, boarding house,<br>dormitory,
+        transient
+        or other "bed space type" establishment.<br>8. All unit owners, tenants, and/or residents of the building,
+        guest,
+        building personnel, contractors and<br>service providers are REQUIRED to follow and comply with the governing
+        House
+        Rules and Regulations to<br>avoid property and personal risk as well as inconvenience as a consequence of
+        violation/s of the<br>provisions of the House Rules.</p>
+    <p class="text-end"
+       style="filter: blur(0px);transform: scale(0.89);text-align: center;padding-top: 0px;margin-top: -22px;padding-right: 0px;margin-bottom: -2px;margin-left: -8px;padding-left: 365px;"></p>
+
+
+</form>
+
+
+<div class="is-container">
+    <div>
+    
+        <div class="is">
+            <h5>Vaccine Card</h5>
+            {{IMG1}}
+        </div>
+        <br>
+        <div class="is">
+            <h5>ID Card Front</h5>
+            {{IMG2}}
+        </div>
+        <br>
+        <div class="is">
+            <h5>ID Card Back</h5>
+            {{IMG3}}
+        </div>
+    </div>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/script.min.js"></script>
+<script src="https://kit.fontawesome.com/b252434098.js" crossorigin="anonymous"></script>
+<script src="assets/js/table.js"></script>
+<script src="assets/js/file-uploader.js"></script>
+<script src="assets/js/signature.js"></script>
+
+</body>
+</html>
